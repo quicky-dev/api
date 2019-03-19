@@ -13,9 +13,6 @@ func main() {
     _ = isFileThere // always should return true (Ask cenz)
     // sets up new instance of echo 
     e := echo.New()
-    
-    // Hello World route to test that server is working 
-    e.GET("/", controllers.HelloWorld)
 
     //WIP: currently logs the uid of file to terminal. Calls generator.GenerateGeneric()
     e.GET("/generic", controllers.GetGeneric)
