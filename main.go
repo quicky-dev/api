@@ -1,6 +1,8 @@
 package main
 
 import (
+    "net/http"
+
     "github.com/labstack/echo"
     "github.com/quicky-dev/api/controllers"
     "github.com/quicky-dev/generator/generator"
@@ -17,6 +19,10 @@ func main() {
     //WIP: currently logs the uid of file to terminal. Calls generator.GenerateGeneric()
     e.GET("/generic", controllers.GetGeneric)
 
+    // this route is strictly for testing our scripts
+    e.GET("/", func(c echo.Context) error {
+        return c.HTML(http.StatusOK, `<a href="/generic">Download Now</a>`)
+    })
     // api listens on PORT: 3000
     e.Logger.Fatal(e.Start(":3000"))
 }

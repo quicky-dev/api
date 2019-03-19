@@ -19,6 +19,6 @@ func GetGeneric(c echo.Context) error {
         log.Fatalln("Caught the following error while generating setup script: ", err)
         os.Exit(1) // exits program due to error 
     }
-    return c.File(filePath) // sends the script file
+    return c.Attachment(filePath, "Setup Script") // sends the script file
 }
 
