@@ -17,6 +17,9 @@ func main() {
     // Hello World route to test that server is working 
     e.GET("/", controllers.HelloWorld)
 
+    //WIP: currently logs the uid of file to terminal. Calls generator.GenerateGeneric()
+    e.GET("/generic", controllers.GetGeneric)
+
     // api listens on PORT: 3000
     e.Logger.Fatal(e.Start(":3000"))
 }
