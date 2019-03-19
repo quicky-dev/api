@@ -3,8 +3,6 @@
 package controllers
 
 import (
-    "net/http"
-    "fmt"
     "log"
     "os"
 
@@ -18,9 +16,9 @@ func GetGeneric(c echo.Context) error {
     // generates the generic script and returns the uid
     filePath, err := generator.GenerateGeneric() 
     if err != nil {
-        log.Fatalln("The following error happened generating script: ", err)
+        log.Fatalln("Caught the following error while generating setup script: ", err)
         os.Exit(1) // exits program due to error 
     }
-    fmt.Println("Path to da file: ", filePath)
-    return c.File(filePath)
+    return c.File(filePath) // sends the script file
 }
+
