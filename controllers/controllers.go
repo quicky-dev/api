@@ -5,6 +5,10 @@ package controllers
 import (
     "log"
     "os"
+    "fmt"
+    "net/http"
+    "encoding/json"
+    "io/ioutil"
 
     "github.com/labstack/echo"
     "github.com/quicky-dev/generator/generator"
@@ -22,3 +26,22 @@ func GetGeneric(c echo.Context) error {
     return c.Attachment(filePath, "Setup Script") // sends the script file
 }
 
+//GetCustom takes in the list of software the user wants to download
+//from the the request body, the lists are then used to generate the correct 
+//setup script
+func GetCustom(c echo.Context) error {
+    // create input map to store req body 
+    inputMap := make(map[string][]string) // string as key, arr of strings as val
+
+    reqBody, err := ioutil.ReadAll(c.Request().Body)
+    if err != nil {
+        log.Fatalln(err)
+    }
+
+    err = json.Unmarshal(reqBody, &inputMap)
+    if err != nil {
+        log.Fatal(err)
+    }
+    fmt.Println("Install Langs ... ", inputMap["languages"])
+    return c.String(http.StatusOK, "Everything is Kosher")
+}

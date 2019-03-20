@@ -17,12 +17,16 @@ func main() {
     e := echo.New()
 
     //WIP: currently logs the uid of file to terminal. Calls generator.GenerateGeneric()
-    e.GET("/generic", controllers.GetGeneric)
+    e.GET("/api/generic", controllers.GetGeneric).Name="Generic-Script"
 
     // this route is strictly for testing our scripts
     e.GET("/", func(c echo.Context) error {
         return c.HTML(http.StatusOK, `<a href="/generic">Download Now</a>`)
     })
+    
+    // POST Route: send arr's of software to setup, returns a custom setup script
+    e.POST("/api/custom", controllers.GetCustom).Name="Custom-Script"
+
     // api listens on PORT: 3000
     e.Logger.Fatal(e.Start(":3000"))
 }
