@@ -5,7 +5,7 @@ require (
 	github.com/labstack/gommon v0.2.8 // indirect
 	github.com/mattn/go-colorable v0.1.1 // indirect
 	github.com/mattn/go-isatty v0.0.7 // indirect
-	github.com/quicky-dev/generator v0.0.0-20190319190206-dc757e7b8608
+	github.com/quicky-dev/generator v0.0.0-20190321023522-b82638f04b54
 	github.com/valyala/fasttemplate v1.0.1 // indirect
 	golang.org/x/crypto v0.0.0-20190313024323-a1f597ede03a // indirect
 )

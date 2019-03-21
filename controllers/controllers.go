@@ -30,18 +30,19 @@ func GetGeneric(c echo.Context) error {
 //from the the request body, the lists are then used to generate the correct 
 //setup script
 func GetCustom(c echo.Context) error {
-    // create input map to store req body 
-    inputMap := make(map[string][]string) // string as key, arr of strings as val
+
+    // struct for setup script factory
+    var installRequest generator.InstallRequest
 
     reqBody, err := ioutil.ReadAll(c.Request().Body)
     if err != nil {
         log.Fatalln(err)
     }
 
-    err = json.Unmarshal(reqBody, &inputMap)
+    err = json.Unmarshal(reqBody, &installRequest)
     if err != nil {
         log.Fatal(err)
     }
-    fmt.Println("Install Langs ... ", inputMap["languages"])
+    fmt.Println(installRequest)
     return c.String(http.StatusOK, "Everything is Kosher")
 }
