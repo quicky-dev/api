@@ -33,16 +33,18 @@ func GetCustom(c echo.Context) error {
 
     // struct for setup script factory
     var installRequest generator.InstallRequest
-
+    // read request body
     reqBody, err := ioutil.ReadAll(c.Request().Body)
     if err != nil {
         log.Fatalln(err)
     }
 
+    // unmarshal json from request body into install request struct
     err = json.Unmarshal(reqBody, &installRequest)
     if err != nil {
         log.Fatal(err)
     }
+
     fmt.Println(installRequest)
-    return c.String(http.StatusOK, "Everything is Kosher")
+    return c.String(http.StatusOK, "All Good")
 }
