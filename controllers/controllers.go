@@ -51,7 +51,7 @@ func GetCustom(c echo.Context) error {
 
 //GetItems sends struct of supported items for download
 func GetItems(c echo.Context) error {
-	// setup install request struct to send
-	var supportedItems generator.InstallRequest
-	return c.JSON(http.StatusOK, supportedItems)
+	// generator.MacPkgs lists all supported packages
+	// for each category
+	return c.JSON(http.StatusOK, generator.MacPkgs)
 }

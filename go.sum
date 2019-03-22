@@ -9,10 +9,14 @@ github.com/mattn/go-colorable v0.1.1/go.mod h1:FuOcm+DKB9mbwrcAfNl7/TZVBZ6rcncea
 github.com/mattn/go-isatty v0.0.5/go.mod h1:Iq45c/XA43vh69/j3iqttzPXn0bhXyGjM0Hdxcsrc5s=
 github.com/mattn/go-isatty v0.0.7 h1:UvyT9uN+3r7yLEYSlJsbQGdsaB/a0DlgWP3pql6iwOc=
 github.com/mattn/go-isatty v0.0.7/go.mod h1:Iq45c/XA43vh69/j3iqttzPXn0bhXyGjM0Hdxcsrc5s=
+github.com/mitchellh/mapstructure v1.1.2 h1:fmNYVwqnSfB9mZU6OS2O6GsXM+wcskZDuKQzvN1EDeE=
+github.com/mitchellh/mapstructure v1.1.2/go.mod h1:FVVH3fgwuzCH5S8UJGiWEs2h04kUh9fWfEaFds41c1Y=
 github.com/quicky-dev/generator v0.0.0-20190319190206-dc757e7b8608 h1:dGsIfmgqRpVbX9ubFOsSdxJOsfO22CMvMDtWLKAR5CI=
 github.com/quicky-dev/generator v0.0.0-20190319190206-dc757e7b8608/go.mod h1:hBNkQuzgve95cdcVM/ADsaRwJdOsoYtAvZrqJFPCH34=
 github.com/quicky-dev/generator v0.0.0-20190321023522-b82638f04b54 h1:+9mxkmtA8eBgdIs9SOHjnWLMWj1IczK+wPSriHeUTuo=
 github.com/quicky-dev/generator v0.0.0-20190321023522-b82638f04b54/go.mod h1:hBNkQuzgve95cdcVM/ADsaRwJdOsoYtAvZrqJFPCH34=
+github.com/quicky-dev/generator v0.0.0-20190322042418-09e8ba7c7c8f h1:1eJAODAZwYyBtDzMA7StNQz0tweYngu7c5DLOjNMdt8=
+github.com/quicky-dev/generator v0.0.0-20190322042418-09e8ba7c7c8f/go.mod h1:hBNkQuzgve95cdcVM/ADsaRwJdOsoYtAvZrqJFPCH34=
 github.com/valyala/bytebufferpool v1.0.0 h1:GqA5TC/0021Y/b9FG4Oi9Mr3q7XYx6KllzawFIhcdPw=
 github.com/valyala/bytebufferpool v1.0.0/go.mod h1:6bBcMArwyJ5K/AmCkWv1jt77kVWyCJ6HpOuEn7z0Csc=
 github.com/valyala/fasttemplate v1.0.1 h1:tY9CJiPnMXf1ERmG2EyK7gNUd+c6RKGD0IfU8WdUSz8=
