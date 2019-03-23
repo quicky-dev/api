@@ -4,7 +4,6 @@ package controllers
 
 import (
 	"encoding/json"
-	"fmt"
 	"io/ioutil"
 	"log"
 	"net/http"
@@ -32,21 +31,28 @@ func GetGeneric(c echo.Context) error {
 func GetCustom(c echo.Context) error {
 
 	// struct for setup script factory
-	var installRequest generator.InstallRequest
+	var install generator.InstallRequest
 	// read request body
 	reqBody, err := ioutil.ReadAll(c.Request().Body)
 	if err != nil {
 		log.Fatalln(err)
+		os.Exit(1)
 	}
 
 	// unmarshal json from request body into install request struct
-	err = json.Unmarshal(reqBody, &installRequest)
+	err = json.Unmarshal(reqBody, &install)
 	if err != nil {
 		log.Fatal(err)
+		os.Exit(1)
 	}
-
-	fmt.Println(installRequest)
-	return c.String(http.StatusOK, "All Good")
+	// generate the bash script
+	pathToFile, err := generator.GenerateDynamic(install)
+	if err != nil {
+		log.Fatal(err)
+		os.Exit(1)
+	}
+	// send path to file as a download
+	return c.Attachment(pathToFile, "setup-script")
 }
 
 //GetItems sends struct of supported items for download
