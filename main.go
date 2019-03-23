@@ -28,7 +28,7 @@ func main() {
 	e.GET("/api/availableItems", controllers.GetItems)
 
 	// POST Route: send arr's of software to setup, returns a custom setup script
-	e.POST("/api/custom", controllers.GetCustom).Name = "Custom-Script"
+	e.POST("/api/dynamic", controllers.GetCustom).Name = "Custom-Script"
 
 	// api listens on PORT: 3000
 	e.Logger.Fatal(e.Start(":3000"))
