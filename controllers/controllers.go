@@ -52,7 +52,14 @@ func GetCustom(c echo.Context) error {
 		os.Exit(1)
 	}
 	// send path to file as a download
-	return c.Attachment(pathToFile, "setup-script")
+	return c.String(http.StatusOK, pathToFile)
+}
+
+//GetFile takes in uuid and sends user the file to the install via CL
+func GetFile(c echo.Context) error {
+	uuid := c.Param("uuid")
+	// sends the setup script file
+	return c.File(uuid)
 }
 
 //GetItems sends struct of supported items for download
