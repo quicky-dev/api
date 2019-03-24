@@ -45,6 +45,7 @@ func GetCustom(c echo.Context) error {
 		log.Fatal(err)
 		os.Exit(1)
 	}
+
 	// generate the bash script
 	pathToFile, err := generator.GenerateDynamic(install)
 	if err != nil {
