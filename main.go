@@ -30,6 +30,10 @@ func main() {
 	// POST Route: send arr's of software to setup, returns a custom setup script
 	e.POST("/api/dynamic", controllers.GetCustom).Name = "Custom-Script"
 
+	// returns file when user runs setup script
+	// from terminal
+	e.GET("/api/:uuid", controllers.GetFile).Name = "Get-File"
+
 	// api listens on PORT: 3000
 	e.Logger.Fatal(e.Start(":3000"))
 }
