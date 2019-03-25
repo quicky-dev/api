@@ -4,6 +4,7 @@ package controllers
 
 import (
 	"encoding/json"
+	"fmt"
 	"io/ioutil"
 	"log"
 	"net/http"
@@ -80,7 +81,9 @@ func GetFile(c echo.Context) error {
 	}
 	script, err := handler.ReadFile(uuid)
 	if err != nil {
-		log.Fatal("There was an error getting setup script: ", err)
+		fmt.Println("KEY: ", uuid)
+		fmt.Println("There was an error getting setup script: ", err)
+		return c.JSON(http.StatusBadRequest, err)
 	}
 	// sends the setup script as string
 	return c.String(http.StatusOK, script)
