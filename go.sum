@@ -1,5 +1,9 @@
+github.com/aws/aws-sdk-go v1.19.1 h1:8kOP0/XGJwXIFlYoD1DAtA39cAjc15Iv/QiDMKitD9U=
+github.com/aws/aws-sdk-go v1.19.1/go.mod h1:KmX6BPdI08NWTb3/sm4ZGu5ShLoqVDhKgpiN924inxo=
 github.com/google/uuid v1.1.1 h1:Gkbcsh/GbpXz7lPftLA3P6TYMwjCLYm83jiFQZF/3gY=
 github.com/google/uuid v1.1.1/go.mod h1:TIyPZe4MgqvfeYDBFedMoGGpEw/LqOeaOT+nhxU+yHo=
+github.com/jmespath/go-jmespath v0.0.0-20180206201540-c2b33e8439af h1:pmfjZENx5imkbgOkpRUYLnmbU7UEFbjtDA2hxJ1ichM=
+github.com/jmespath/go-jmespath v0.0.0-20180206201540-c2b33e8439af/go.mod h1:Nht3zPeWKUH0NzdCt2Blrr5ys8VGpn0CEB0cQHVjt7k=
 github.com/labstack/echo v3.3.10+incompatible h1:pGRcYk231ExFAyoAjAfD85kQzRJCRI8bbnE7CX5OEgg=
 github.com/labstack/echo v3.3.10+incompatible/go.mod h1:0INS7j/VjnFxD4E2wkz67b8cVwCLbBmJyDaka6Cmk1s=
 github.com/labstack/gommon v0.2.8 h1:JvRqmeZcfrHC5u6uVleB4NxxNbzx6gpbJiQknDbKQu0=
@@ -25,6 +29,8 @@ github.com/quicky-dev/generator v0.0.0-20190323041356-4d01cf2eb888 h1:aaARb1z9l0
 github.com/quicky-dev/generator v0.0.0-20190323041356-4d01cf2eb888/go.mod h1:tqo0eImAQqVATuL2StPMHAR7KKn6k5u85WF1bhrpoCg=
 github.com/quicky-dev/generator v0.0.0-20190324010205-fd98d915dbd9 h1:oeg2RHfyStTZ1ydjEDJx7l2a5HJez8hIFAVa9OeNxVs=
 github.com/quicky-dev/generator v0.0.0-20190324010205-fd98d915dbd9/go.mod h1:tqo0eImAQqVATuL2StPMHAR7KKn6k5u85WF1bhrpoCg=
+github.com/quicky-dev/generator v0.0.0-20190325055936-410635c7e651 h1:gQJwmgHoHqNj/4MDdwPFy3gTw46hZ/dBw3fkF1C0AvM=
+github.com/quicky-dev/generator v0.0.0-20190325055936-410635c7e651/go.mod h1:tqo0eImAQqVATuL2StPMHAR7KKn6k5u85WF1bhrpoCg=
 github.com/valyala/bytebufferpool v1.0.0 h1:GqA5TC/0021Y/b9FG4Oi9Mr3q7XYx6KllzawFIhcdPw=
 github.com/valyala/bytebufferpool v1.0.0/go.mod h1:6bBcMArwyJ5K/AmCkWv1jt77kVWyCJ6HpOuEn7z0Csc=
 github.com/valyala/fasttemplate v1.0.1 h1:tY9CJiPnMXf1ERmG2EyK7gNUd+c6RKGD0IfU8WdUSz8=
