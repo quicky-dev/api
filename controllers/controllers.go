@@ -62,6 +62,7 @@ func GetCustom(c echo.Context) error {
 		log.Fatal("There was an error getting S3 Session: ", err)
 	}
 
+	fmt.Println("Before we upload: ", script.UUID)
 	// Uploads file to S3 Bucket
 	err = handler.UploadFile(script.UUID, script.Payload)
 	if err != nil {
