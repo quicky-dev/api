@@ -5,6 +5,6 @@
         { "src": "*.go", "use": "@now/go" }
     ],
     "env": {
-    "DATABASE_NAME": "test"
+    "GO111MODULE": "on"
   }
 }
