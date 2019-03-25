@@ -40,7 +40,7 @@ func (h S3Handler) UploadFile(uuid string, body string) error {
 
 	_, err := s3.New(h.Session).PutObject(&s3.PutObjectInput{
 		Bucket:               aws.String(h.Bucket),
-		Key:                  aws.String(uuid),
+		Key:                  aws.String("scripts/" + uuid),
 		ACL:                  aws.String("private"),
 		Body:                 bytes.NewReader(buffer),
 		ContentLength:        aws.Int64(int64(len(buffer))),
