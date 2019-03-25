@@ -67,7 +67,7 @@ func GetCustom(c echo.Context) error {
 		log.Fatal("There was an error uploading file to S3 : ", err)
 	}
 	// send path to file as a download
-	return c.String(http.StatusOK, "File Created")
+	return c.String(http.StatusOK, script.UUID)
 }
 
 //GetFile takes in uuid and sends user the file to the install via CL
