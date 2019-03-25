@@ -32,7 +32,7 @@ func main() {
 
 	// returns file when user runs setup script
 	// from terminal
-	e.GET("/api/:uuid", controllers.GetFile).Name = "Get-File"
+	e.GET("/api/scripts/:uuid", controllers.GetFile).Name = "Get-File"
 
 	// api listens on PORT: 3000
     e.Logger.Fatal(e.Start(":" + os.Getenv("PORT")))

@@ -60,9 +60,8 @@ func GetCustom(c echo.Context) error {
 //GetFile takes in uuid and sends user the file to the install via CL
 func GetFile(c echo.Context) error {
 	uuid := c.Param("uuid")
-	fmt.Println(uuid)
 	// sends the setup script file
-    return c.File(uuid)
+    return c.File("scripts/" + uuid)
 }
 
 //GetItems sends struct of supported items for download
