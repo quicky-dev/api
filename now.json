@@ -1,0 +1,7 @@
+{
+    "version": 2,
+    "name": "Quicky-api",
+    "builds": [
+        { "src": "*.go", "use": "@now/go" }
+    ]
+}
