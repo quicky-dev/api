@@ -8,7 +8,7 @@ import (
 	"github.com/quicky-dev/generator/generator"
 )
 //Handler is main function for Quicky-api
-func Handler() {
+func Handler(w http.ResponseWriter, r *http.Request) {
 
 	// call the generator packages Init function to setup the script factory file
 	isFileThere := generator.Init("./scripts", true)
