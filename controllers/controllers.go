@@ -8,7 +8,6 @@ import (
 	"log"
 	"net/http"
 	"os"
-	"fmt"
 
 	"github.com/labstack/echo"
 	"github.com/quicky-dev/generator/generator"
