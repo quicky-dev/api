@@ -7,8 +7,8 @@ import (
 	"github.com/quicky-dev/api/controllers"
 	"github.com/quicky-dev/generator/generator"
 )
-
-func main() {
+//Handler is main function for Quicky-api
+func Handler() {
 
 	// call the generator packages Init function to setup the script factory file
 	isFileThere := generator.Init("./scripts", true)
