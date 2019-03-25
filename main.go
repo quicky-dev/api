@@ -35,6 +35,6 @@ func main() {
 	e.GET("/api/:uuid", controllers.GetFile).Name = "Get-File"
 
 	// api listens on PORT: 3000
-	e.Logger.Fatal(e.Start(os.Getenv("PORT")))
+    e.Logger.Fatal(e.Start(":" + os.Getenv("PORT")))
 
 }
