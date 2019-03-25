@@ -13,3 +13,4 @@
 
 # Script outputs
 .scripts
+.env

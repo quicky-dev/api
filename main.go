@@ -2,6 +2,7 @@ package main
 
 import (
 	"net/http"
+	"os"
 
 	"github.com/labstack/echo"
 	"github.com/quicky-dev/api/controllers"
@@ -34,6 +35,6 @@ func main() {
 	e.GET("/api/:uuid", controllers.GetFile).Name = "Get-File"
 
 	// api listens on PORT: 3000
-	e.Logger.Fatal(e.Start(":3000"))
+	e.Logger.Fatal(e.Start(os.Getenv("PORT")))
 
 }
