@@ -3,5 +3,8 @@
     "name": "Quicky-api",
     "builds": [
         { "src": "*.go", "use": "@now/go" }
-    ]
+    ],
+    "env": {
+    "DATABASE_NAME": "test"
+  }
 }
