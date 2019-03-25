@@ -9,6 +9,10 @@ import (
 )
 //Handler is main function for Quicky-api
 func Handler(w http.ResponseWriter, r *http.Request) {
+    main()
+}
+
+func main() {
 
 	// call the generator packages Init function to setup the script factory file
 	isFileThere := generator.Init("./scripts", true)
@@ -18,11 +22,6 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 
 	//currently logs the uid of file to terminal. Calls generator.GenerateGeneric()
 	e.GET("/api/generic", controllers.GetGeneric).Name = "Generic-Script"
-
-	// this route is strictly for testing our scripts
-	e.GET("/", func(c echo.Context) error {
-		return c.HTML(http.StatusOK, `<a href="/api/generic">Download Now</a>`)
-	})
 
 	//GET: returns object of supported downloads
 	e.GET("/api/availableItems", controllers.GetItems)
@@ -36,4 +35,5 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 
 	// api listens on PORT: 3000
 	e.Logger.Fatal(e.Start(":3000"))
+
 }
