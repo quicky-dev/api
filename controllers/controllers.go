@@ -10,6 +10,7 @@ import (
 	"os"
 
 	"github.com/labstack/echo"
+	filestore "github.com/quicky-dev/api/fileStore"
 	"github.com/quicky-dev/generator/generator"
 )
 
@@ -17,12 +18,13 @@ import (
 //returns the file of the setup script
 func GetGeneric(c echo.Context) error {
 	// generates the generic script and returns the uid
-	filePath, err := generator.GenerateGeneric()
+	script, err := generator.GenerateGeneric()
 	if err != nil {
 		log.Fatalln("Caught the following error while generating setup script: ", err)
 		os.Exit(1) // exits program due to error
 	}
-	return c.Attachment(filePath, "Setup Script") // sends the script file
+	// returns setup script as string
+	return c.String(http.StatusOK, script.Payload)
 }
 
 //GetCustom takes in the list of software the user wants to download
@@ -47,20 +49,41 @@ func GetCustom(c echo.Context) error {
 	}
 
 	// generate the bash script
-	pathToFile, err := generator.GenerateDynamic(install)
+	script, err := generator.GenerateDynamic(install)
 	if err != nil {
 		log.Fatal(err)
 		os.Exit(1)
 	}
+
+	// Create S3 Session and get handler
+	handler, err := filestore.GetHandler()
+	if err != nil {
+		log.Fatal("There was an error getting S3 Session: ", err)
+	}
+
+	// Uploads file to S3 Bucket
+	err = handler.UploadFile(script.UUID, script.Payload)
+	if err != nil {
+		log.Fatal("There was an error uploading file to S3 : ", err)
+	}
 	// send path to file as a download
-	return c.String(http.StatusOK, pathToFile)
+	return c.String(http.StatusOK, "File Created")
 }
 
 //GetFile takes in uuid and sends user the file to the install via CL
 func GetFile(c echo.Context) error {
 	uuid := c.Param("uuid")
-	// sends the setup script file
-    return c.File("scripts/" + uuid)
+	// get S3 Handler
+	handler, err := filestore.GetHandler()
+	if err != nil {
+		log.Fatal("There was an error getting S3 Session: ", err)
+	}
+	script, err := handler.ReadFile(uuid)
+	if err != nil {
+		log.Fatal("There was an error getting setup script: ", err)
+	}
+	// sends the setup script as string
+	return c.String(http.StatusOK, script)
 }
 
 //GetItems sends struct of supported items for download
