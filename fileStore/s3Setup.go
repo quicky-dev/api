@@ -2,7 +2,6 @@ package filestore
 
 import (
 	"bytes"
-	"fmt"
 	"io"
 	"net/http"
 	"os"
@@ -56,11 +55,9 @@ func (h S3Handler) UploadFile(uuid string, body string) error {
 //ReadFile takes S3 session and with key Reads file
 func (h S3Handler) ReadFile(uuid string) (string, error) {
 	// gets results from Bucket
-	fmt.Println(h.Bucket)
-	fmt.Println(uuid)
 	results, err := s3.New(h.Session).GetObject(&s3.GetObjectInput{
 		Bucket: aws.String(h.Bucket),
-		Key:    aws.String(uuid),
+		Key:    aws.String("scripts/" + uuid),
 	})
 	if err != nil {
 		return "", err
