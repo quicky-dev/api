@@ -4,6 +4,7 @@ package controllers
 
 import (
 	"encoding/json"
+	"fmt"
 	"io/ioutil"
 	"log"
 	"net/http"
@@ -78,6 +79,7 @@ func GetFile(c echo.Context) error {
 	if err != nil {
 		log.Fatal("There was an error getting S3 Session: ", err)
 	}
+	fmt.Println("Controllers uuid: ", uuid)
 	script, err := handler.ReadFile(uuid)
 	if err != nil {
 		log.Fatal("There was an error getting setup script: ", err)
