@@ -37,6 +37,8 @@ github.com/quicky-dev/generator v0.0.0-20190325184433-56f3fcce9e10 h1:R3BENBHGH0
 github.com/quicky-dev/generator v0.0.0-20190325184433-56f3fcce9e10/go.mod h1:tqo0eImAQqVATuL2StPMHAR7KKn6k5u85WF1bhrpoCg=
 github.com/quicky-dev/generator v0.0.0-20190325195242-32103433de11 h1:/dAzhHrf7eaVJDxl6F6HUzIxUMwCvgWHi8SVEeJFa3Q=
 github.com/quicky-dev/generator v0.0.0-20190325195242-32103433de11/go.mod h1:tqo0eImAQqVATuL2StPMHAR7KKn6k5u85WF1bhrpoCg=
+github.com/quicky-dev/generator v0.0.0-20190325195835-07290e1625fc h1:aCCN2VDKYTuhO4zhTZSeS9T6dmYSSofSzS8ld4HU36g=
+github.com/quicky-dev/generator v0.0.0-20190325195835-07290e1625fc/go.mod h1:tqo0eImAQqVATuL2StPMHAR7KKn6k5u85WF1bhrpoCg=
 github.com/valyala/bytebufferpool v1.0.0 h1:GqA5TC/0021Y/b9FG4Oi9Mr3q7XYx6KllzawFIhcdPw=
 github.com/valyala/bytebufferpool v1.0.0/go.mod h1:6bBcMArwyJ5K/AmCkWv1jt77kVWyCJ6HpOuEn7z0Csc=
 github.com/valyala/fasttemplate v1.0.1 h1:tY9CJiPnMXf1ERmG2EyK7gNUd+c6RKGD0IfU8WdUSz8=
