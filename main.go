@@ -8,15 +8,16 @@ import (
 	"github.com/quicky-dev/api/controllers"
 	"github.com/quicky-dev/generator/generator"
 )
+
 //Handler is main function for Quicky-api
 func Handler(w http.ResponseWriter, r *http.Request) {
-    main()
+	main()
 }
 
 func main() {
 
 	// call the generator packages Init function to setup the script factory file
-	isFileThere := generator.Init("./scripts", true)
+	isFileThere := generator.Init("./scripts", false)
 	_ = isFileThere // always should return true (Ask cenz)
 	// sets up new instance of echo
 	e := echo.New()
@@ -35,6 +36,6 @@ func main() {
 	e.GET("/api/scripts/:uuid", controllers.GetFile).Name = "Get-File"
 
 	// api listens on PORT: 3000
-    e.Logger.Fatal(e.Start(":" + os.Getenv("PORT")))
+	e.Logger.Fatal(e.Start(":" + os.Getenv("PORT")))
 
 }
