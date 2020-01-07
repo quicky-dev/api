@@ -1,5 +1,5 @@
-//Package controllers  will hold all of the logic for our routes that will be
-//called in our main function in main.go
+// Package controllers will hold all of the logic for our routes
+// that will be called in our main function in main.go
 package controllers
 
 import (
@@ -15,8 +15,10 @@ import (
 	"github.com/quicky-dev/generator/generator"
 )
 
-//GetGeneric creates the Generic setup script and sends it as response
-//returns the file of the setup script
+/* ------------------------------- GetGeneric ------------------------------- */
+
+// GetGeneric creates the Generic setup script and sends it
+// as response returns the file of the setup script
 func GetGeneric(c echo.Context) error {
 	// generates the generic script and returns the uid
 	script, err := generator.GenerateGeneric()
@@ -27,6 +29,8 @@ func GetGeneric(c echo.Context) error {
 	// returns setup script as string
 	return c.String(http.StatusOK, script.Payload)
 }
+
+/* -------------------------------- GetCustom ------------------------------- */
 
 //GetCustom takes in the list of software the user wants to download
 //from the the request body, the lists are then used to generate the correct
@@ -71,6 +75,8 @@ func GetCustom(c echo.Context) error {
 	return c.String(http.StatusOK, script.UUID)
 }
 
+/* --------------------------------- GetFile -------------------------------- */
+
 //GetFile takes in uuid and sends user the file to the install via CL
 func GetFile(c echo.Context) error {
 	uuid := c.Param("uuid")
@@ -88,6 +94,8 @@ func GetFile(c echo.Context) error {
 	// sends the setup script as string
 	return c.String(http.StatusOK, script)
 }
+
+/* -------------------------------- GetItems -------------------------------- */
 
 //GetItems sends struct of supported items for download
 func GetItems(c echo.Context) error {
