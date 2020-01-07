@@ -2,7 +2,7 @@
 
 [![License](https://img.shields.io/badge/License-MIT-brightgreen)](https://github.com/quicky-dev/api/blob/master/LICENSE)
 [![GoDoc](https://img.shields.io/badge/godoc-reference-blue)](https://godoc.org/github.com/quicky-dev/api)
-[![API](https://img.shields.io/badge/API-docs-blue)](https://github.com/quicky-dev/api/blob/master/DOCUMENTATION)
+[![API](https://img.shields.io/badge/API-docs-blue)](https://github.com/quicky-dev/api/blob/master/DOCUMENTATION.md)
 [![Go Report Card](https://goreportcard.com/badge/github.com/go-swagger/go-swagger)](https://goreportcard.com/report/github.com/quicky-dev/api)
 
 ## Description
