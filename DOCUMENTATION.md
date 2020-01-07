@@ -7,3 +7,4 @@
 | GET           | /availableItems                         | sends struct of supported items for download.                                 |
 | POST          | /dynamic                                | takes custom list of software from user that generates correct setupt script. |
 | GET           | /scripts/:uuid                          | takes in uuid and sends user the file to the install via CL.                  |
+
