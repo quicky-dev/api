@@ -5,6 +5,7 @@ import (
 	"os"
 
 	"github.com/labstack/echo"
+	"github.com/labstack/echo/middleware"
 	"github.com/quicky-dev/api/controllers"
 	"github.com/quicky-dev/generator/generator"
 )
@@ -21,6 +22,11 @@ func main() {
 	_ = isFileThere // always should return true (Ask cenz)
 	// sets up new instance of echo
 	e := echo.New()
+
+	e.Use(middleware.CORSWithConfig(middleware.CORSConfig{
+		AllowOrigins: []string{"https://quicky.dev:"},
+		AllowHeaders: []string{echo.HeaderOrigin, echo.HeaderContentType, echo.HeaderAccept},
+	}))
 
 	//currently logs the uid of file to terminal. Calls generator.GenerateGeneric()
 	e.GET("/api/generic", controllers.GetGeneric).Name = "Generic-Script"

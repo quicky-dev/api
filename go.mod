@@ -2,6 +2,7 @@ module github.com/quicky-dev/api
 
 require (
 	github.com/aws/aws-sdk-go v1.19.1
+	github.com/dgrijalva/jwt-go v3.2.0+incompatible // indirect
 	github.com/labstack/echo v3.3.10+incompatible
 	github.com/labstack/gommon v0.2.8 // indirect
 	github.com/mattn/go-colorable v0.1.1 // indirect
