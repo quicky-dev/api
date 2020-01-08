@@ -1,3 +1,4 @@
+// Package filestore will be used to store bash commands as txt
 package filestore
 
 import (
