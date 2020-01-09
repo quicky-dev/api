@@ -2,9 +2,10 @@
 
 
 [[projects]]
-  digest = "1:997f23577326e2499a3625ffba65edd11f71a7ce1a915ef47ead43cab71003c5"
+  digest = "1:399a7e3034a1e3901659136f29f8b60fed93bf81393378d392b1c814ef776b29"
   name = "github.com/aws/aws-sdk-go"
   packages = [
+    ".",
     "aws",
     "aws/arn",
     "aws/awserr",
@@ -216,6 +217,7 @@
   analyzer-name = "dep"
   analyzer-version = 1
   input-imports = [
+    "github.com/aws/aws-sdk-go",
     "github.com/aws/aws-sdk-go/aws",
     "github.com/aws/aws-sdk-go/aws/session",
     "github.com/aws/aws-sdk-go/service/s3",

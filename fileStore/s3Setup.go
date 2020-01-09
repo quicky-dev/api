@@ -22,7 +22,7 @@ type S3Handler struct {
 func GetHandler() (S3Handler, error) {
 	var handler S3Handler
 	// get the S3 session
-	sess, err := session.NewSession(&aws.Config{Region: aws.String(os.Getenv("S3_REGION"))})
+	sess, err := session.NewSession(&aws.Config{Region: aws.String(os.Getenv("AWS_REGION"))})
 	if err != nil {
 		return handler, err
 	}
