@@ -23,24 +23,32 @@ func main() {
 	// sets up new instance of echo
 	e := echo.New()
 
-	/* ----------------------------- MacOS Packages ----------------------------- */
+	// Headers allowed over CORS
+	var allowedHeaders = []string{
+		echo.HeaderOrigin, echo.HeaderContentType, echo.HeaderAccept}
+
+	// Register CORS policy for https://quicky.dev, our frontend domain.
 	e.Use(middleware.CORSWithConfig(middleware.CORSConfig{
 		AllowOrigins: []string{"https://quicky.dev"},
-		AllowHeaders: []string{echo.HeaderOrigin, echo.HeaderContentType, echo.HeaderAccept},
+		AllowHeaders: allowedHeaders,
 	}))
 
+	/* ----------------------------- MacOS Packages ------------------------- */
+
 	//currently logs the uid of file to terminal. Calls generator.GenerateGeneric()
-	e.GET("/api/macos/generic", controllers.GetGeneric).Name = "Generic-Script"
+	e.GET(
+		"/api/v1/macos/generic", controllers.GetGeneric).Name = "Generic-Script"
 
 	//GET: returns object of supported downloads
-	e.GET("/api/macos/availableItems", controllers.GetItems)
+	e.GET("/api/v1/macos/availableItems", controllers.GetItems)
 
 	// POST Route: send arr's of software to setup, returns a custom setup script
-	e.POST("/api/macos/dynamic", controllers.GetCustom).Name = "Custom-Script"
+	e.POST(
+		"/api/v1/macos/dynamic", controllers.GetCustom).Name = "Custom-Script"
 
 	// returns file when user runs setup script
 	// from terminal
-	e.GET("/api/macos/scripts/:uuid", controllers.GetFile).Name = "Get-File"
+	e.GET("/api/v1/macos/scripts/:uuid", controllers.GetFile).Name = "Get-File"
 
 	// api listens on PORT: 3000
 	e.Logger.Fatal(e.Start(":" + os.Getenv("PORT")))
