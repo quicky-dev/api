@@ -33,11 +33,12 @@ func main() {
 		AllowHeaders: allowedHeaders,
 	}))
 
+	e.GET("/api/v1/os/available", controllers.GetAvailableOSes)
 	/* ----------------------------- MacOS Packages ------------------------- */
 
 	e.GET(
 		"/api/v1/os/macos/generic",
-		controllers.GetMacOSGeneric).Name = "Generic-Script"
+		controllers.GetMacOSGeneric).Name = "Generic-MacOS-Script"
 
 	//GET: returns object of supported downloads
 	e.GET("/api/v1/os/macos/availableItems", controllers.GetMacOSItems)
@@ -45,7 +46,7 @@ func main() {
 	// POST Route: send arr's of software to setup, returns a custom setup script
 	e.POST(
 		"/api/v1/os/macos/dynamic",
-		controllers.GetMacOSCustom).Name = "Custom-Script"
+		controllers.GetMacOSCustom).Name = "Custom-MacOS-Script"
 
 	// returns file when user runs setup script from terminal
 	e.GET(

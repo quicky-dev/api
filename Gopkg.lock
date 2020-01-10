@@ -123,7 +123,7 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:24bfdb905f8f671bd66fd9e537e9233026b4d53e6ba424e8122192dceae098bb"
+  digest = "1:c574ac6739e1a2b4cc2279815747c5d5dd981613eecc9b423178f6bfcf3a4265"
   name = "github.com/quicky-dev/generator"
   packages = [
     ".",
@@ -133,7 +133,7 @@
     "util"
   ]
   pruneopts = "UT"
-  revision = "d49557350cb19f124e5fcf17e341927951d77b4e"
+  revision = "1263b8412daed14fb2c0a4d44e9a3474ff17da71"
 
 [[projects]]
   digest = "1:c468422f334a6b46a19448ad59aaffdfc0a36b08fdcc1c749a0b29b6453d7e59"
