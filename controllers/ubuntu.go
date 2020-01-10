@@ -15,13 +15,15 @@ import (
 	"github.com/quicky-dev/generator/generator"
 )
 
+var ubuntu generator.UBUNTU_GENERATOR = generator.GetUbuntuGenerator()
+
 /* ------------------------------- GetGeneric ------------------------------- */
 
 // GetGeneric creates the Generic setup script and sends it
 // as response returns the file of the setup script
-func GetGeneric(c echo.Context) error {
+func GetUbuntuGeneric(c echo.Context) error {
 	// generates the generic script and returns the uid
-	script, err := generator.GenerateGeneric()
+	script, err := ubuntu.GenerateGenericScript()
 	if err != nil {
 		log.Fatalln("Caught the following error while generating setup script: ", err)
 		os.Exit(1) // exits program due to error
@@ -35,7 +37,7 @@ func GetGeneric(c echo.Context) error {
 //GetCustom takes in the list of software the user wants to download
 //from the the request body, the lists are then used to generate the correct
 //setup script
-func GetCustom(c echo.Context) error {
+func GetUbuntuCustom(c echo.Context) error {
 
 	// struct for setup script factory
 	var install generator.InstallRequest
@@ -54,7 +56,7 @@ func GetCustom(c echo.Context) error {
 	}
 
 	// generate the bash script
-	script, err := generator.GenerateDynamic(install)
+	script, err := ubuntu.GenerateDynamicScript(install)
 	if err != nil {
 		log.Fatal(err)
 		os.Exit(1)
@@ -67,7 +69,7 @@ func GetCustom(c echo.Context) error {
 	}
 
 	// Uploads file to S3 Bucket
-	err = handler.UploadFile(script.UUID, script.Payload)
+	err = handler.UploadFile("ubuntu", script.UUID, script.Payload)
 	if err != nil {
 		log.Fatal("There was an error uploading file to S3 : ", err)
 	}
@@ -78,14 +80,15 @@ func GetCustom(c echo.Context) error {
 /* --------------------------------- GetFile -------------------------------- */
 
 //GetFile takes in uuid and sends user the file to the install via CL
-func GetFile(c echo.Context) error {
+func GetUbuntuFile(c echo.Context) error {
 	uuid := c.Param("uuid")
+	fmt.Println(uuid)
 	// get S3 Handler
 	handler, err := filestore.GetHandler()
 	if err != nil {
 		log.Fatal("There was an error getting S3 Session: ", err)
 	}
-	script, err := handler.ReadFile(uuid)
+	script, err := handler.ReadFile("ubuntu", uuid)
 	if err != nil {
 		fmt.Println("KEY: ", uuid)
 		fmt.Println("There was an error getting setup script: ", err)
@@ -98,7 +101,7 @@ func GetFile(c echo.Context) error {
 /* -------------------------------- GetItems -------------------------------- */
 
 //GetItems sends struct of supported items for download
-func GetItems(c echo.Context) error {
+func GetUbuntuItems(c echo.Context) error {
 	// sends all supported mac packages as big JSON obj
-	return c.JSON(http.StatusOK, generator.MacPkgs)
+	return c.JSON(http.StatusOK, ubuntu.AvailablePackages)
 }

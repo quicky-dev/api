@@ -17,3 +17,5 @@
 
 # Ignore dep dependencies
 vendor/
+
+scripts/

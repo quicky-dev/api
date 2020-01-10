@@ -1,7 +1,7 @@
 # Endpoint Documentation
-| Verb          | Route                             |
-| ------------- |:---------------------------------:|
-| **BASE URL**  | **quicky.dev/api**                |
+| Verb          | Route                               |
+| ------------- |:-----------------------------------:|
+| **BASE URL**  | **quicky.dev/api/os**               |
 
 
 
@@ -12,9 +12,10 @@
 | POST          | <OPERATING_SYSTEM>/dynamic         | takes custom list of software and generates correct setuptscript.|
 | GET           | <OPERATING_SYSTEM>/scripts/:uuid   | takes in uuid and sends user the file to the install via CL.     |
 
-## Example request
+## Example requests
 
-`https://www.quicky.dev/macos/generic`
+`https://www.quicky.dev/api/os/macos/generic`
+`https://www.quicky.dev/api/os/ubuntu/dynamic`
 
 ## Example response
 

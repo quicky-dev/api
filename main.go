@@ -33,22 +33,41 @@ func main() {
 		AllowHeaders: allowedHeaders,
 	}))
 
+	e.GET("/api/v1/os", controllers.GetAvailableOSes)
 	/* ----------------------------- MacOS Packages ------------------------- */
 
-	//currently logs the uid of file to terminal. Calls generator.GenerateGeneric()
 	e.GET(
-		"/api/v1/macos/generic", controllers.GetGeneric).Name = "Generic-Script"
+		"/api/v1/os/macos/generic",
+		controllers.GetMacOSGeneric).Name = "Generic-MacOS-Script"
 
 	//GET: returns object of supported downloads
-	e.GET("/api/v1/macos/availableItems", controllers.GetItems)
+	e.GET("/api/v1/os/macos/availableItems", controllers.GetMacOSItems)
 
 	// POST Route: send arr's of software to setup, returns a custom setup script
 	e.POST(
-		"/api/v1/macos/dynamic", controllers.GetCustom).Name = "Custom-Script"
+		"/api/v1/os/macos/dynamic",
+		controllers.GetMacOSCustom).Name = "Custom-MacOS-Script"
 
-	// returns file when user runs setup script
-	// from terminal
-	e.GET("/api/v1/macos/scripts/:uuid", controllers.GetFile).Name = "Get-File"
+	// returns file when user runs setup script from terminal
+	e.GET(
+		"/api/v1/os/macos/scripts/:uuid",
+		controllers.GetMacOSFile).Name = "Get-MacOS-File"
+
+	/* ----------------------------- Linux Packages ----------------------------- */
+
+	e.GET(
+		"/api/v1/os/ubuntu/generic",
+		controllers.GetUbuntuGeneric).Name = "Generic-Ubuntu-Script"
+
+	e.GET("/api/v1/os/ubuntu/availableItems", controllers.GetUbuntuItems)
+
+	e.POST(
+		"/api/v1/os/ubuntu/dynamic",
+		controllers.GetUbuntuCustom).Name = "Custom-Ubuntu-Script"
+
+	e.GET(
+		"/api/v1/os/ubuntu/scripts/:uuid",
+		controllers.GetUbuntuFile).Name = "Get-Ubuntu-File"
 
 	// api listens on PORT: 3000
 	e.Logger.Fatal(e.Start(":" + os.Getenv("PORT")))

@@ -36,12 +36,12 @@ func GetHandler() (S3Handler, error) {
 }
 
 //UploadFile takes S3 session and key/value for file and stores in Bucket
-func (h S3Handler) UploadFile(uuid string, body string) error {
+func (h S3Handler) UploadFile(os string, uuid string, body string) error {
 	buffer := []byte(body)
 
 	_, err := s3.New(h.Session).PutObject(&s3.PutObjectInput{
 		Bucket:               aws.String(h.Bucket),
-		Key:                  aws.String("scripts/" + uuid),
+		Key:                  aws.String(os + "/scripts/" + uuid),
 		ACL:                  aws.String("private"),
 		Body:                 bytes.NewReader(buffer),
 		ContentLength:        aws.Int64(int64(len(buffer))),
@@ -54,11 +54,11 @@ func (h S3Handler) UploadFile(uuid string, body string) error {
 }
 
 //ReadFile takes S3 session and with key Reads file
-func (h S3Handler) ReadFile(uuid string) (string, error) {
+func (h S3Handler) ReadFile(os string, uuid string) (string, error) {
 	// gets results from Bucket
 	results, err := s3.New(h.Session).GetObject(&s3.GetObjectInput{
 		Bucket: aws.String(h.Bucket),
-		Key:    aws.String("scripts/" + uuid),
+		Key:    aws.String(os + "/scripts/" + uuid),
 	})
 	if err != nil {
 		return "", err
