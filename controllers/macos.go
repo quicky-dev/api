@@ -15,6 +15,8 @@ import (
 	"github.com/quicky-dev/generator/generator"
 )
 
+var macos generator.MACOS_GENERATOR
+
 /* ------------------------------- GetGeneric ------------------------------- */
 
 // GetGeneric creates the Generic setup script and sends it
@@ -100,5 +102,5 @@ func GetFile(c echo.Context) error {
 //GetItems sends struct of supported items for download
 func GetItems(c echo.Context) error {
 	// sends all supported mac packages as big JSON obj
-	return c.JSON(http.StatusOK, generator.MacPkgs)
+	return c.JSON(http.StatusOK, macos.AvailablePackages)
 }
