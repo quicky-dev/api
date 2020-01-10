@@ -21,7 +21,7 @@ import (
 // as response returns the file of the setup script
 func GetGeneric(c echo.Context) error {
 	// generates the generic script and returns the uid
-	script, err := generator.GenerateGeneric()
+	script, err := generator.GenerateGenericScript()
 	if err != nil {
 		log.Fatalln("Caught the following error while generating setup script: ", err)
 		os.Exit(1) // exits program due to error
@@ -54,7 +54,7 @@ func GetCustom(c echo.Context) error {
 	}
 
 	// generate the bash script
-	script, err := generator.GenerateDynamic(install)
+	script, err := generator.GenerateDynamicScript(install)
 	if err != nil {
 		log.Fatal(err)
 		os.Exit(1)
