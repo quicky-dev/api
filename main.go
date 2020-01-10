@@ -46,9 +46,20 @@ func main() {
 	e.POST(
 		"/api/v1/macos/dynamic", controllers.GetCustom).Name = "Custom-Script"
 
-	// returns file when user runs setup script
-	// from terminal
+	// returns file when user runs setup script from terminal
 	e.GET("/api/v1/macos/scripts/:uuid", controllers.GetFile).Name = "Get-File"
+
+	/* ----------------------------- Linux Packages ----------------------------- */
+
+	e.GET(
+		"/api/v1/linux/generic", controllers.GetGeneric).Name = "Generic-Script"
+
+	e.GET("/api/v1/linux/availableItems", controllers.GetItems)
+
+	e.POST(
+		"/api/v1/linux/dynamic", controllers.GetCustom).Name = "Custom-Script"
+
+	e.GET("/api/v1/linux/scripts/:uuid", controllers.GetFile).Name = "Get-File"
 
 	// api listens on PORT: 3000
 	e.Logger.Fatal(e.Start(":" + os.Getenv("PORT")))
