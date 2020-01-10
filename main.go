@@ -33,7 +33,7 @@ func main() {
 		AllowHeaders: allowedHeaders,
 	}))
 
-	e.GET("/api/v1/os/available", controllers.GetAvailableOSes)
+	e.GET("/api/v1/os", controllers.GetAvailableOSes)
 	/* ----------------------------- MacOS Packages ------------------------- */
 
 	e.GET(
