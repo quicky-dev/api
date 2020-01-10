@@ -23,7 +23,7 @@ var ubuntu generator.UBUNTU_GENERATOR = generator.GetUbuntuGenerator()
 // as response returns the file of the setup script
 func GetUbuntuGeneric(c echo.Context) error {
 	// generates the generic script and returns the uid
-	script, err := macos.GenerateGenericScript()
+	script, err := ubuntu.GenerateGenericScript()
 	if err != nil {
 		log.Fatalln("Caught the following error while generating setup script: ", err)
 		os.Exit(1) // exits program due to error
@@ -56,7 +56,7 @@ func GetUbuntuCustom(c echo.Context) error {
 	}
 
 	// generate the bash script
-	script, err := macos.GenerateDynamicScript(install)
+	script, err := ubuntu.GenerateDynamicScript(install)
 	if err != nil {
 		log.Fatal(err)
 		os.Exit(1)
@@ -69,7 +69,7 @@ func GetUbuntuCustom(c echo.Context) error {
 	}
 
 	// Uploads file to S3 Bucket
-	err = handler.UploadFile(script.UUID, script.Payload)
+	err = handler.UploadFile("ubuntu", script.UUID, script.Payload)
 	if err != nil {
 		log.Fatal("There was an error uploading file to S3 : ", err)
 	}
@@ -82,12 +82,13 @@ func GetUbuntuCustom(c echo.Context) error {
 //GetFile takes in uuid and sends user the file to the install via CL
 func GetUbuntuFile(c echo.Context) error {
 	uuid := c.Param("uuid")
+	fmt.Println(uuid)
 	// get S3 Handler
 	handler, err := filestore.GetHandler()
 	if err != nil {
 		log.Fatal("There was an error getting S3 Session: ", err)
 	}
-	script, err := handler.ReadFile(uuid)
+	script, err := handler.ReadFile("ubuntu", uuid)
 	if err != nil {
 		fmt.Println("KEY: ", uuid)
 		fmt.Println("There was an error getting setup script: ", err)

@@ -69,7 +69,7 @@ func GetMacOSCustom(c echo.Context) error {
 	}
 
 	// Uploads file to S3 Bucket
-	err = handler.UploadFile(script.UUID, script.Payload)
+	err = handler.UploadFile("macos", script.UUID, script.Payload)
 	if err != nil {
 		log.Fatal("There was an error uploading file to S3 : ", err)
 	}
@@ -87,7 +87,7 @@ func GetMacOSFile(c echo.Context) error {
 	if err != nil {
 		log.Fatal("There was an error getting S3 Session: ", err)
 	}
-	script, err := handler.ReadFile(uuid)
+	script, err := handler.ReadFile("macos", uuid)
 	if err != nil {
 		fmt.Println("KEY: ", uuid)
 		fmt.Println("There was an error getting setup script: ", err)
