@@ -2,6 +2,14 @@
 
 
 [[projects]]
+  digest = "1:938f79d09131c6204cee2c363a6e9066a369bc1977f09028ca549f44a836b734"
+  name = "github.com/DataDog/zstd"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "8fdb579680349497546a04291cedfff98a7829a0"
+  version = "v1.4.4"
+
+[[projects]]
   digest = "1:997f23577326e2499a3625ffba65edd11f71a7ce1a915ef47ead43cab71003c5"
   name = "github.com/aws/aws-sdk-go"
   packages = [
@@ -57,6 +65,22 @@
   pruneopts = "UT"
   revision = "06ea1031745cb8b3dab3f6a236daf2b0aa468b7e"
   version = "v3.2.0"
+
+[[projects]]
+  digest = "1:586ea76dbd0374d6fb649a91d70d652b7fe0ccffb8910a77468e7702e7901f3d"
+  name = "github.com/go-stack/stack"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "2fee6af1a9795aafbe0253a0cfbdf668e1fb8a9a"
+  version = "v1.8.0"
+
+[[projects]]
+  branch = "master"
+  digest = "1:700b1e527116332847452edf9febc0c252c026785a8c3cfa3f68a8eeffb09ee8"
+  name = "github.com/golang/snappy"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "ff6b7dc882cf4cfba7ee0b9f7dcc1ac096c554aa"
 
 [[projects]]
   digest = "1:582b704bebaa06b48c29b0cec224a6058a09c86883aaddabde889cd1a5f73e1b"
@@ -122,11 +146,18 @@
   version = "v1.1.2"
 
 [[projects]]
+  digest = "1:cf31692c14422fa27c83a05292eb5cbe0fb2775972e8f1f8446a71549bd8980b"
+  name = "github.com/pkg/errors"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "ba968bfe8b2f7e042a574c888954fccecfa385b4"
+  version = "v0.8.1"
+
+[[projects]]
   branch = "master"
-  digest = "1:c574ac6739e1a2b4cc2279815747c5d5dd981613eecc9b423178f6bfcf3a4265"
+  digest = "1:45b0a986a3f711fc8ce62bbf8b625eed81e49e647aa247f25a9253b6b1e8e8d3"
   name = "github.com/quicky-dev/generator"
   packages = [
-    ".",
     "generator",
     "support/macos",
     "support/ubuntu",
@@ -153,11 +184,68 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:2d892da8ced067bd8178490d47cebd8b4858a5ff53b58a1a82d8c46eec2a0e52"
+  digest = "1:40fdfd6ab85ca32b6935853bbba35935dcb1d796c8135efd85947566c76e662e"
+  name = "github.com/xdg/scram"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "7eeb5667e42c09cb51bf7b7c28aea8c56767da90"
+
+[[projects]]
+  branch = "master"
+  digest = "1:f5c1d04bc09c644c592b45b9f0bad4030521b1a7d11c7dadbb272d9439fa6e8e"
+  name = "github.com/xdg/stringprep"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "73f8eece6fdcd902c185bf651de50f3828bed5ed"
+
+[[projects]]
+  digest = "1:f44e6646a34c7d251bcde34fe679235317340d0374a2d9f992a5fbf52d921aa0"
+  name = "go.mongodb.org/mongo-driver"
+  packages = [
+    "bson",
+    "bson/bsoncodec",
+    "bson/bsonoptions",
+    "bson/bsonrw",
+    "bson/bsontype",
+    "bson/primitive",
+    "event",
+    "internal",
+    "mongo",
+    "mongo/options",
+    "mongo/readconcern",
+    "mongo/readpref",
+    "mongo/writeconcern",
+    "tag",
+    "version",
+    "x/bsonx",
+    "x/bsonx/bsoncore",
+    "x/mongo/driver",
+    "x/mongo/driver/address",
+    "x/mongo/driver/auth",
+    "x/mongo/driver/auth/internal/gssapi",
+    "x/mongo/driver/connstring",
+    "x/mongo/driver/description",
+    "x/mongo/driver/dns",
+    "x/mongo/driver/mongocrypt",
+    "x/mongo/driver/mongocrypt/options",
+    "x/mongo/driver/operation",
+    "x/mongo/driver/session",
+    "x/mongo/driver/topology",
+    "x/mongo/driver/uuid",
+    "x/mongo/driver/wiremessage"
+  ]
+  pruneopts = "UT"
+  revision = "55b507b3e45a2ef5dc1d5a4cba3333c45dce443c"
+  version = "v1.2.1"
+
+[[projects]]
+  branch = "master"
+  digest = "1:72d4bfc8bddb4525acbf6da8c0a9f0ad4eafddb48cb9901215e44e0fe6f3ae96"
   name = "golang.org/x/crypto"
   packages = [
     "acme",
-    "acme/autocert"
+    "acme/autocert",
+    "pbkdf2"
   ]
   pruneopts = "UT"
   revision = "53104e6ec876ad4e22ad27cce588b01392043c1b"
@@ -169,6 +257,14 @@
   packages = ["idna"]
   pruneopts = "UT"
   revision = "c0dbc17a35534bf2e581d7a942408dc936316da4"
+
+[[projects]]
+  branch = "master"
+  digest = "1:382bb5a7fb4034db3b6a2d19e5a4a6bcf52f4750530603c01ca18a172fa3089b"
+  name = "golang.org/x/sync"
+  packages = ["semaphore"]
+  pruneopts = "UT"
+  revision = "cd5d95a43a6e21273425c7ae415d3df9ea832eeb"
 
 [[projects]]
   branch = "master"
@@ -212,8 +308,8 @@
     "github.com/aws/aws-sdk-go/service/s3",
     "github.com/labstack/echo",
     "github.com/labstack/echo/middleware",
-    "github.com/quicky-dev/generator",
-    "github.com/quicky-dev/generator/generator"
+    "github.com/quicky-dev/generator/generator",
+    "go.mongodb.org/mongo-driver/mongo"
   ]
   solver-name = "gps-cdcl"
   solver-version = 1
